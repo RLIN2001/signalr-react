@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	Outlet,
+	Link,
+} from "react-router-dom";
+import Test1 from "./pages/test1";
+import Test2 from "./pages/test2";
+import Layout from "./components/Layout";
+import { data } from "./signalr";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+	return (
+		<Router>
+			<Routes>
+				<Route path="/" element={<Layout />}>
+					<Route index element={<Home />} />
+					<Route path="test1" element={<Test1 />} />
+					<Route path="test2" element={<Test2 />} />
+					<Route path="*" element={<NoMatch />} />
+				</Route>
+			</Routes>
+		</Router>
+	);
 }
 
-export default App;
+function Home() {
+	return (
+		<>
+			<h2>Welcome to the Home Page!</h2>
+			<button
+				onClick={() => {
+					data.value = "data passed";
+				}}
+			>
+				Click
+			</button>
+		</>
+	);
+}
+
+function NoMatch() {
+	return (
+		<div>
+			<h2>Nothing to see here!</h2>
+
+			{<p>{data.value}</p>}
+			<p>
+				<Link to="/">Go to the home page</Link>
+			</p>
+		</div>
+	);
+}
