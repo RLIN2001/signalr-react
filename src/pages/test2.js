@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { data } from "../signalr";
+import { count, data, double } from "../signalr";
 
 export default function Test2() {
 	const [value, setValue] = useState(data.value);
 
+	console.log(count.value);
+	console.log(double.value);
 	return (
 		<div>
 			<p>{value}</p>
