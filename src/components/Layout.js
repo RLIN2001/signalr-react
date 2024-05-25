@@ -14,6 +14,9 @@ export default function Layout({ children }) {
 					<li>
 						<Link to="/test2">Test2</Link>
 					</li>
+					<li>
+						<Link to="/test3">Test3</Link>
+					</li>
 				</ul>
 			</nav>
 			<hr />

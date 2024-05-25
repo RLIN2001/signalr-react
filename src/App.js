@@ -9,7 +9,8 @@ import {
 import Test1 from "./pages/test1";
 import Test2 from "./pages/test2";
 import Layout from "./components/Layout";
-import { data } from "./signalr";
+import Test3 from "./pages/test3";
+import { data } from "./signals";
 
 export default function App() {
 	return (
@@ -19,6 +20,7 @@ export default function App() {
 					<Route index element={<Home />} />
 					<Route path="test1" element={<Test1 />} />
 					<Route path="test2" element={<Test2 />} />
+					<Route path="test3" element={<Test3 />} />
 					<Route path="*" element={<NoMatch />} />
 				</Route>
 			</Routes>

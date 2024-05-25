@@ -1,5 +1,5 @@
 import React from "react";
-import { data } from "../signalr";
+import { data } from "../signals";
 
 export default function Test1() {
 	return (

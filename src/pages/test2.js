@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { count, data, double } from "../signalr";
+import { count, data, double } from "../signals";
 
 export default function Test2() {
 	const [value, setValue] = useState(data.value);
